@@ -38,6 +38,7 @@ Basically, each scripts works in conjunction with these flags:
 
 ## Examples
 
+### Orders
 GET all the orders
 ```
 ./GET/orders.sh -j
@@ -53,11 +54,19 @@ GET a short summary for all the orders
 ./GET/orders.sh -j -q '.orders[] | {id,created_at,updated_at,financial_status,fulfillment_status,confirmed,closed_at,total_price,currency,customer:{email: .customer.email,name:"\(.customer.first_name) \(.customer.last_name)"}}'
 ```
 
+### Single Order
 GET all the information for a single order
 ```
 ./GET/order.sh -j -o 4666765607132
 ```
+
 GET a short summary for a single order
 ```
 ./GET/order.sh -j -o 4666765607132 -q '.order | {id,created_at,updated_at,financial_status,fulfillment_status,confirmed,closed_at,total_price,currency,customer:{email: .customer.email,name:"\(.customer.first_name) \(.customer.last_name)"}}'
+```
+
+### Order Fulfillment list
+GET all the information for a single order
+```
+./GET/fulfillment.sh -j -o 4666765607132
 ```

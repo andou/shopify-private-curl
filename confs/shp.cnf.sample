@@ -1,2 +1,3 @@
 TOKEN="shppa_access_token"
 DOMAIN="your-development-store"
+LOCATION_ID="your-default-logistic-headquarter"
