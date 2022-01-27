@@ -52,3 +52,12 @@ GET a short summary for all the orders
 ```
 ./GET/orders.sh -j -q '.orders[] | {id,created_at,updated_at,financial_status,fulfillment_status,confirmed,closed_at,total_price,currency,customer:{email: .customer.email,name:"\(.customer.first_name) \(.customer.last_name)"}}'
 ```
+
+GET all the information for a single order
+```
+./GET/order.sh -j -o 4666765607132
+```
+GET a short summary for a single order
+```
+./GET/order.sh -j -o 4666765607132 -q '.order | {id,created_at,updated_at,financial_status,fulfillment_status,confirmed,closed_at,total_price,currency,customer:{email: .customer.email,name:"\(.customer.first_name) \(.customer.last_name)"}}'
+```
