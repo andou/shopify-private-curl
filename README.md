@@ -37,7 +37,9 @@ Basically, each scripts works in conjunction with these flags:
 ```
 `-j` to pipe with jq, if installed and `-q` to specify the jq filter, when in use.
 
-Some scripts will need some other IDs in input. In any case a `-h` flag should tells you the right usage
+Some scripts will need some other IDs in input. In any case a `-h` flag should tells you the right usage.
+
+In any case, a `-p` flag will not execute the curl but prints it on the screen. Which could be useful to make calls in other circumnstances.
 
 ## Shopify Documentation
 
