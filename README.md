@@ -34,6 +34,7 @@ Basically, each scripts works in conjunction with these flags:
 ```
     -j  Utilizza jq in pipe
     -q  Insieme con il flag -j per specificare il filtro jq
+    -p  Stampa a video il comando curl da eseguire
 ```
 `-j` to pipe with jq, if installed and `-q` to specify the jq filter, when in use.
 
