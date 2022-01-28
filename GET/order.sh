@@ -9,8 +9,14 @@ print_header() {
 }
 
 the_call(){
-    OUT=$(curl -s -X GET "https://${DOMAIN}.myshopify.com/admin/api/2021-10/orders/${THE_ORDER}.json" \
+    if [ "$PRINT_COMMAND" = "true" ]; then
+        printf "${GREEN}Issue this from the command line:${NC}\n"
+        echo 'curl -s -X GET "https://'$DOMAIN'.myshopify.com/admin/api/2021-10/orders/'$THE_ORDER'.json" \
+    -H "X-Shopify-Access-Token: '$TOKEN'"'
+    else
+        OUT=$(curl -s -X GET "https://${DOMAIN}.myshopify.com/admin/api/2021-10/orders/${THE_ORDER}.json" \
     -H "X-Shopify-Access-Token: ${TOKEN}")
+    fi
 }
 
 ###########################################

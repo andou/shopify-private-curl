@@ -10,11 +10,17 @@ print_header() {
 
 the_call(){
     PACKAGE='{}'
-        
-    OUT=$(curl -s -d ${PACKAGE} \
+
+    if [ "$PRINT_COMMAND" = "true" ]; then
+        printf "${GREEN}Issue this from the command line:${NC}\n"
+        echo 'curl -s -d '$PACKAGE' \
+-X POST "https://'$DOMAIN'.myshopify.com/admin/api/2021-10/orders/'$THE_ORDER'/fulfillments/'$THE_FULFILLMENT'/cancel.json" \
+-H "X-Shopify-Access-Token: '$TOKEN'" -H "Content-Type: application/json"'
+    else
+        OUT=$(curl -s -d ${PACKAGE} \
 -X POST "https://${DOMAIN}.myshopify.com/admin/api/2021-10/orders/${THE_ORDER}/fulfillments/${THE_FULFILLMENT}/cancel.json" \
 -H "X-Shopify-Access-Token: ${TOKEN}" -H "Content-Type: application/json") 
-
+    fi
 }
 
 ###########################################

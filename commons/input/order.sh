@@ -1,12 +1,14 @@
 
 
 JQ_CLI=''
+PRINT_COMMAND=''
 THE_ORDER=''
 
 print_usage() {
   cat << "EOF"
     OPTIONS
         -h  Stampa questo help
+        -p  Stampa a video il comando curl da eseguire
         -o  ID dell'ordine
         -v  Modalità verbosa
         -j  Utilizza jq in pipe
@@ -14,10 +16,11 @@ print_usage() {
 EOF
 }
 
-while getopts 'vjhq:o:' flag; do
+while getopts 'vpjhq:o:' flag; do
   case "${flag}" in
     j) USE_JQ="true" ;;
     v) VERBOSE="true" ;;
+    p) PRINT_COMMAND="true" ;;
     q) JQ_CLI="${OPTARG}" ;;
     o) THE_ORDER="${OPTARG}" ;;
     h) print_usage
