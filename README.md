@@ -49,13 +49,43 @@ In any case, a `-p` flag will not execute the curl but prints it on the screen. 
 - [Retrieve a specific order](https://shopify.dev/api/admin-rest/2021-10/resources/order#[get]/admin/api/2021-10/orders/{order_id}.json)
 
 ### Fulfillments
+- [Retrieves a list of fulfillment orders for a specific order](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillmentorder#[get]/admin/api/2021-10/orders/{order_id}/fulfillment_orders.json)
 - [Create a new Fulfillment](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillment#[post]/admin/api/2021-10/orders/{order_id}/fulfillments.json)
 - [Cancel a fulfillment for a specific order ID](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillment#[post]/admin/api/2021-10/orders/{order_id}/fulfillments/{fulfillment_id}/cancel.json)
-- [Retrieves a list of fulfillment orders for a specific order](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillmentorder#[get]/admin/api/2021-10/orders/{order_id}/fulfillment_orders.json)
 
 ## Examples
 
+### Curl commands
+
+Here's a brief summary of the `curl` commands you may want to check
+
+All the orders [API Reference](https://shopify.dev/api/admin-rest/2021-10/resources/order#[get]/admin/api/2021-10/orders.json?status=any)
+```
+./GET/orders.sh -p
+```
+
+Retrieve a specific order [API Reference](https://shopify.dev/api/admin-rest/2021-10/resources/order#[get]/admin/api/2021-10/orders/{order_id}.json)
+```
+./GET/order.sh -p -o 4666764525788
+```
+
+Specific order fulfillments list [API Reference](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillmentorder#[get]/admin/api/2021-10/orders/{order_id}/fulfillment_orders.json)
+```
+./GET/fulfillments.sh -p -o 4666764525788
+```
+
+Create an order fulfillment [API Reference](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillment#[post]/admin/api/2021-10/orders/{order_id}/fulfillments.json)
+```
+./POST/fulfillments-create.sh -p -o 4666764525788
+```
+
+Cancel an order fulfillment [API Reference](https://shopify.dev/api/admin-rest/2021-10/resources/fulfillment#[post]/admin/api/2021-10/orders/{order_id}/fulfillments/{fulfillment_id}/cancel.json)
+```
+./POST/fulfillments-cancel.sh -p -o 4666764525788 -f 4166735724764
+```
+
 ### Orders
+
 GET all the orders
 ```
 ./GET/orders.sh -j
